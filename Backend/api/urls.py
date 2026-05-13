@@ -6,6 +6,7 @@ from .views import (
     ProfileView,
     RegisterView,
     WatchlistViewSet,
+    health_check,
     home_page,
 )
 
@@ -14,6 +15,7 @@ router.register(r'movies', MovieViewSet)
 router.register(r'watchlist', WatchlistViewSet, basename='watchlist')
 urlpatterns = [
     path('', include(router.urls)),
+    path('health/', health_check, name='health-check'),
     path('home/', home_page, name='home-page'),
     path('register/', RegisterView.as_view(), name='auth_register'),
     path('profile/', ProfileView.as_view(), name='profile'),

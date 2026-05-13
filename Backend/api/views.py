@@ -17,6 +17,12 @@ from .serializers import (
 )
 
 
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def health_check(request):
+    return Response({'status': 'ok'})
+
+
 class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Movie.objects.prefetch_related('genres').order_by('-created_at')
     serializer_class = MovieSerializer

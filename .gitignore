@@ -1,1 +1,6 @@
 Backend/sob-venv/
+Backend/__pycache__/
+Backend/staticfiles/
+frontend/.angular/
+frontend/dist/
+frontend/node_modules/
