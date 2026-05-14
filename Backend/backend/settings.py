@@ -14,7 +14,14 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+import os
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+# This pulls the 'RENDER_EXTERNAL_HOSTNAME' variable that Render provides automatically
+render_external_hostname = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if render_external_hostname:
+    ALLOWED_HOSTS.append(render_external_hostname)
 
 # Application definition
 
@@ -74,7 +81,7 @@ DATABASES = {
         default=DATABASE_URL,
         conn_max_age=600,
         conn_health_checks=True,
-        ssl_require=True,
+        
     )
 }
 
