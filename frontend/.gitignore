@@ -43,4 +43,6 @@ __screenshots__/
 Thumbs.db
 public/bingsphere_images/
 public/stitch_mini_netflix_clone/
-.
+../build
+../render.yaml
+../requirements.txt
