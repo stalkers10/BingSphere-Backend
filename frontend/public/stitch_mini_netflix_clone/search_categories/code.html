@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Netflix Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #000000;
+            color: #ffdad5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .text-gradient-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#2e1a18",
+                    "on-tertiary-fixed": "#001b3c",
+                    "on-secondary-fixed-variant": "#474646",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-container": "#f8f9ff",
+                    "on-secondary": "#313030",
+                    "surface-container-highest": "#462f2c",
+                    "inverse-on-surface": "#412b28",
+                    "background": "#200e0c",
+                    "surface-container-low": "#2a1614",
+                    "tertiary-fixed": "#d5e3ff",
+                    "surface": "#200e0c",
+                    "primary-fixed": "#ffdad5",
+                    "on-primary-fixed": "#410001",
+                    "on-surface": "#ffdad5",
+                    "primary": "#ffb4aa",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed": "#e5e2e1",
+                    "surface-variant": "#462f2c",
+                    "error-container": "#93000a",
+                    "tertiary": "#a7c8ff",
+                    "on-primary-fixed-variant": "#930007",
+                    "secondary-container": "#4a4949",
+                    "outline-variant": "#5e3f3b",
+                    "inverse-primary": "#c0000c",
+                    "surface-bright": "#4a3330",
+                    "on-primary": "#690003",
+                    "on-tertiary-fixed-variant": "#004689",
+                    "on-background": "#ffdad5",
+                    "surface-dim": "#200e0c",
+                    "inverse-surface": "#ffdad5",
+                    "on-primary-container": "#fff7f6",
+                    "outline": "#af8782",
+                    "on-surface-variant": "#e9bcb6",
+                    "tertiary-container": "#0072d7",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "primary-container": "#e50914",
+                    "on-tertiary": "#003061",
+                    "secondary": "#c8c6c5",
+                    "surface-tint": "#ffb4aa",
+                    "surface-container-lowest": "#1a0908",
+                    "on-error": "#690005",
+                    "surface-container-high": "#3a2522",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "tertiary-fixed-dim": "#a7c8ff",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#bab8b7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1920px",
+                    "margin-md": "3rem",
+                    "unit": "8px",
+                    "gutter": "1.5rem",
+                    "margin-lg": "4rem",
+                    "margin-sm": "1rem"
+            },
+            "fontFamily": {
+                    "display-md": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-md": ["48px", {"lineHeight": "48px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["72px", {"lineHeight": "72px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface-dim selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-sm md:px-margin-md lg:px-margin-lg h-16 bg-transparent dark:bg-transparent transition-colors duration-300 ease-in-out">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-display-lg text-primary-container dark:text-primary-container tracking-tighter">NETFLIX</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-secondary-fixed-dim dark:text-secondary-fixed-dim font-body-md hover:text-on-surface transition-colors duration-200" href="#">Home</a>
+<a class="text-secondary-fixed-dim dark:text-secondary-fixed-dim font-body-md hover:text-on-surface transition-colors duration-200" href="#">TV Shows</a>
+<a class="text-secondary-fixed-dim dark:text-secondary-fixed-dim font-body-md hover:text-on-surface transition-colors duration-200" href="#">Movies</a>
+<a class="text-secondary-fixed-dim dark:text-secondary-fixed-dim font-body-md hover:text-on-surface transition-colors duration-200" href="#">New &amp; Popular</a>
+</nav>
+</div>
+<div class="flex items-center gap-gutter">
+<!-- Search Bar Integration -->
+<div class="relative flex items-center group">
+<div class="flex items-center bg-surface-container-low border border-outline-variant px-3 py-1.5 rounded-none focus-within:border-white transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md text-on-surface placeholder:text-secondary-fixed-dim w-48 md:w-64" placeholder="Titles, people, genres" type="text"/>
+</div>
+</div>
+<button class="flex items-center justify-center p-2 text-on-surface hover:text-on-surface-variant transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-lg overflow-hidden border border-outline-variant cursor-pointer scale-105 transition-transform duration-300">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCWg19Grd7XyjlRl1DdDNQKc8TQ--fPuSIZP4vN1U8yFmp3oZOfmNYLJUXelb9yFDTDChgXbYI38891HRZaVdFNWGw12h82JNPCwQBRuX6Hk9P3lxZ_GKXSmystd3wSpeFAhdELc7K0ALVO5TPIhfND7OygochuxGPcgnfnLbRGlUl_4agLQDuFENSEO0NHoQwBaXkV35Pmx94rjgIk2wuIcmzQGhMP77iaNQcsOQrm6z3MSTFWZ36m0KgTcPaTLR7arT2ZPQgho4C"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-16 min-h-screen">
+<!-- Search Results Grid Section -->
+<section class="px-margin-sm md:px-margin-md lg:px-margin-lg">
+<div class="mb-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Explore by Genre</h2>
+</div>
+<!-- Bento-style/Asymmetric Responsive Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+<!-- Large Highlight Card -->
+<div class="col-span-2 row-span-2 relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[4/5] md:aspect-auto md:h-full w-full">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A cinematic and dramatic movie poster concept for a sci-fi epic. A lone astronaut stands on a crystalline red planet surface looking towards a massive neon nebula in a deep black sky. The lighting is high-contrast with deep shadows and intense red highlights, matching the Netflix aesthetic. The atmosphere is mysterious and grand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsCRJFAoM115_a6cqeHmVA7llm-LQ7g4sNHVdW7G53zXJbgNmgRTbSaopI10tqIJdMM3tnY9iycVgHbXsf_VIiSLeYC6SORHmg9lCww7YLONwirpuPlQSbwwuyr3dKEsCCy_tq5LRIQhGYrzLBNBgJew-rVdzI_R9naZjrpm3GrFTYPgzJBRc5MGmmOrBGEMgfCY4hJCqowvuKJgg3s6ZyOZSdnP-hyLgy80-gbJ-eUO08kVq3Vb80-qTNANQY2m27eCUtsgznyOQT"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="bg-primary-container text-on-primary-container px-2 py-0.5 font-label-sm text-label-sm mb-2 inline-block">TRENDING</span>
+<h3 class="font-display-md text-display-md text-white">RED ASCENSION</h3>
+</div>
+</div>
+<!-- Regular Tiles -->
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[2/3] w-full">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A moody theatrical photography of a rainy city street at night in Tokyo. Neon signs in vibrant pink and blue reflect on wet asphalt, creating a high-contrast cinematic atmosphere. Deep shadows dominate the composition, allowing the glowing highlights to pop. The aesthetic is dark, premium, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs1MpcRV7P38MMN_U2g-XsJltorUklfTOBIFiMwfX3lfDY_nCdo9GmZqdHis3iZvhi3n6EZojJ6niTatQSWlclUHrl5cbjsXtRXjvDpZVEYutOYezauNlQRz4yRS6QV-KD__5UAapvjRR02sHWiqgo85NTgkhjGk_AxylYnW8bjSaQdhglnQF1KDwo8IEsA3E9pskDt2dxoJVKnBlkH5QcK-z5MjCyCm1si3URqrfwNbMXSHdA6cc9-Qi1xAk6p1qqutfvft3Qaq8U"/>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<div class="mt-2">
+<p class="font-label-sm text-label-sm text-secondary">Cyberpunk Noir</p>
+</div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[2/3] w-full">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A dramatic low-angle shot of a gothic mansion shrouded in thick morning mist. The lighting is cold and desaturated, creating an eerie, suspenseful mood. Silhouettes of bare trees frame the composition against a dark charcoal sky. The visual style is cinematic, prioritizing atmosphere and mystery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9md78Ls1wkR06aeVmes4CF-3ya0asKMyiSt6LfZwQL13ubQW4VruVCrpRKzJ2boHNcC02IkHvidYYxRL4ofBEQs_kUerqQ2hCRz6czvUBTW_AJv_DlcTBJZbJHhXwihLYRHPj1q_enPffG0L9wi6ip8t-iPhdlz1_1Bs5XmzmfdPyRG3UJgJue5VHO_3ae9drDKnV_6EEIQTzF-XTvXzPCsEFnxm43qRUhrfUbLzhZA2_99IsGDjgCnMWOfz9c8vhmV1jSzZVOkGY"/>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<div class="mt-2">
+<p class="font-label-sm text-label-sm text-secondary">Ghostly Echoes</p>
+</div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[2/3] w-full">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close-up portrait of a jazz musician playing a saxophone in a dimly lit, smoke-filled club. A single warm spotlight illuminates the musician's face and the polished brass, while the rest of the scene fades into a deep, rich black void. The lighting is theatrical and intimate, capturing a sense of soulful movement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJnQXGCwNGM0BUuS3zliLI-dhbNaeOMn2uxPZ47Sl-5XogChkaQhsn1X5nCPHIHsVKnNind2AzcHIJcdxzHTeMKAQgODvZSjbjvL0_mr7iJRAAgXMXnuL8dyYJ4re8VDE5c9yB6ytDDvrD2C9YvP38XYaXPCvOq5MDDZsNVWzxKYO8t4Ubama6zEvaPVzrTbVptDiP_rCsR5XVENum7-KB-DDDKwzmLUL_tr8VX168__k06EK4ek9Bv3PiVSJi3B0yCkvT_U3Q0vDw"/>
+</div>
+<div class="mt-2">
+<p class="font-label-sm text-label-sm text-secondary">The Jazz Room</p>
+</div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[2/3] w-full">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An expansive aerial view of a futuristic desert city at twilight. The architecture consists of sleek metallic towers glowing with golden internal lights. The color palette is a mix of deep desert oranges and cold twilight blues, maintaining high contrast. The mood is epic and visionary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBRdMEbUB-K4ruq6IiQ-8ws2_BxBvZWKFC0SCVi5qBE8Vi-KWJjZE9dvPNa3cinkIqNOYbxgwZicZ8bFqxcLNQSiYTijfxtxZnX0msMEkeHRcyKgGpKY_2LpyLyqAvQ05PjJucfSAylcPQJFYJWpJbO7RuVXQAuQxyJ37FqnhLEMLsOQkGfUPp2S0ciV5pATDh3HgGS0OeqOd5sDKoTVM8HSmXPihVykr_zVGM7YowLCfsUh_B1xcYEJV_6jnA5v3dCFMYZezl_nLr"/>
+</div>
+<div class="mt-2">
+<p class="font-label-sm text-label-sm text-secondary">Dune Chronicles</p>
+</div>
+</div>
+<!-- More grid items to fill space -->
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[2/3] w-full">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A lush, cinematic shot of a mystical forest where ancient trees are adorned with bioluminescent fungi glowing in soft teal. The lighting is ethereal and soft, creating a dreamlike fantasy aesthetic. Deep greens and dark wood tones anchor the composition. The atmosphere is peaceful yet magical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNsbdbzaNXowTGi4zEHiNqJQOho5oZVwvK9vg6lqm-vTRJmCrhKGnP455IOnu3F9PKom1mFIMfJTDvOWVb6O9PkqEbSNQuU2RyZ-vxlkAVz7vT-qiDR629ZbjAoZlfVdOuyhxMm20bC5u722_x6OzC91dPIjaw4jdRzE1ALz-XpkmU9BweZ281fv4TArJs3MIWT1YVk-zlh0GcKr4HFkUXhw5h8IU9ouaC1zZHvpodfxh3B2CQ3nz4miQAIshmT5qwpAo1VFqljtq6"/>
+</div>
+<div class="mt-2">
+<p class="font-label-sm text-label-sm text-secondary">Nature Unseen</p>
+</div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[2/3] w-full">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A dynamic action sequence shot of a high-speed chase through a neon-lit futuristic tunnel. The motion blur creates a sense of extreme speed, while vibrant streaks of light cut through the dark charcoal environment. The aesthetic is high-octane and modern, using a color palette of electric blue and primary red." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9eyCzGiiAvEDk1XBe8XeEfJuOnE_oxb1aMdWo3sQCdFX7I2bkqr4izadVEKutPd51ixP0CMITCR-6LulOugliJVesgr4np_h176HtivfjRRHOMDPyNXiD3-I5f2F-feKJfxytSP3YZ_GWb8QV-IcnsYcLL6oagJIN7jdlDptJTwCwa1mN9aIXhX_UiyLc1y9dPSPCcRvNfMQaMpRb7di7o7Cx5KNP99hiJueqqDUSAtfxaEWCc1NLPA9roYGhMw0jQK_tAnARHEg7"/>
+</div>
+<div class="mt-2">
+<p class="font-label-sm text-label-sm text-secondary">Velocity</p>
+</div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[2/3] w-full">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A striking minimalist shot of a classic cinema theater's red velvet seats under a single beam of light. The surrounding space is a perfect black void, emphasizing the texture and rich primary red color of the seats. The lighting is dramatic and focused, evoking a feeling of anticipation before a premiere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQH4WaPGaCrdbm_wSiPpv0zGsWQoNeYu6RdhT0W3PF2BzhCN8ruwt99hj3AV3evI2XrmuKlJawFysAVa-I_Yq2Z2TGRnnIhStWe9_zAnPUDpZmS-jiWzJgtp89Y41sskkXOLfGNk3NNE6ixUDXotor1F9tRUdNkZ7Y2ctuVsTK6xYioCyV9pLARZ40hzfI2dG5e8epzsVyZ8om6vYplTF6YWMsOzYG7HHK1GDociSv76E_RrdJpSwuKie4thMRHck1l3Denapj_H89"/>
+</div>
+<div class="mt-2">
+<p class="font-label-sm text-label-sm text-secondary">The Front Row</p>
+</div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[2/3] w-full">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A sophisticated abstract composition of flowing liquid metal in deep charcoal and bright silver. The lighting creates sharp reflections and soft gradients, giving the surface a high-end tactile feel. The visual style is premium and tech-focused, perfectly suited for a modern entertainment brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP0fPRJJZwEGbYWL1nTRiA9jHEXq1Y8vZ1IMd750HQgwgWTdABoEWgFjk-Cs6kNd8yDtplQKBFw5eMVsjeT3ezdZU_VMs3NgeUifiPdJZ9qC7Gh6GqurGGNP83ibnAieB2EX5MW2xFmJFJjpqvLk5yffgS_OLtnx_VYXP40FwMBJkkq2sLBd3-tOHN7kmYUiuoUzaUXxXBVWrJoeP7OT4st04akC5fIZPBhWSfzawSGun1ZGoHSZ7IZACSzZE7NnVZbLOW-9rCk_1r"/>
+</div>
+<div class="mt-2">
+<p class="font-label-sm text-label-sm text-secondary">The Core</p>
+</div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[2/3] w-full">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A dramatic mountain range at night under a clear starry sky. A faint aurora borealis in soft green wisps dances above the peaks. The lighting is low-key, relying on starlight and the faint glow of the aurora. The mood is vast, silent, and awe-inspiring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRCmbJnKNzNcyrmi-RyyB6aGwbWcsgmS4o48bq7SyqsNC1quzyyqQqvxI080USBTYGjJC6wdvvnoatMfddUS34Eo6_O6wPVOWBPfe0-g-Yd0t79tDJb3mousN5HUovPX46XklZwj-oErJ2ussyMkAEcaHOG_BPHCi9qvDZBPe-SD-bS1VgHMVSMIi6gW6qw1iNhxQMYyWc4o9my2CYS8DHXXHwz2sxQn7b3TWbu0b1oPDY56nz1lLyZT9GnwBNBY1sytb_c5rHbZqG"/>
+</div>
+<div class="mt-2">
+<p class="font-label-sm text-label-sm text-secondary">Midnight Heights</p>
+</div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<div class="aspect-[2/3] w-full">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional documentary-style photograph of a deep-sea researcher working with a glowing submersible in the dark ocean depths. The lighting is dominated by the blue bioluminescence of sea creatures and the stark white beam of the sub. The composition is intimate and scientific, emphasizing discovery in the unknown." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeEzlU_csFvvEIosvp0XGoPHCJcaLlyQj8wwahgt8sVnU5z5ufdOu7vUrxboOoQ8cC7YbbquQzs-8uVEGzbc1iHKm1cTIZDuuQkYHC2OJGIJ27xWQj_ipFp2Z199WpDV6j_OnFnEh5GLJAEZBVstQYXH25WdtgoCaFo_6MiA-torqdwTtMq70Qk_290j3NSNXJUr4QD_C0zUvO7G6H_kb4UmVbLHxUmIGB_pOUmRSoWGEJ3AEdfXmQsdzJ9P4-uAtkM-KxmX4tN04D"/>
+</div>
+<div class="mt-2">
+<p class="font-label-sm text-label-sm text-secondary">Abyss</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Search Category / Horizontal Shelf -->
+<section class="mt-16 px-margin-sm md:px-margin-md lg:px-margin-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Popular Searches</h2>
+<div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
+<div class="flex-none w-64 h-36 bg-surface-container-high rounded-lg flex items-center justify-center border border-outline-variant hover:border-white transition-colors cursor-pointer">
+<span class="font-headline-md text-headline-md">ACTION</span>
+</div>
+<div class="flex-none w-64 h-36 bg-surface-container-high rounded-lg flex items-center justify-center border border-outline-variant hover:border-white transition-colors cursor-pointer">
+<span class="font-headline-md text-headline-md">COMEDY</span>
+</div>
+<div class="flex-none w-64 h-36 bg-surface-container-high rounded-lg flex items-center justify-center border border-outline-variant hover:border-white transition-colors cursor-pointer">
+<span class="font-headline-md text-headline-md">HORROR</span>
+</div>
+<div class="flex-none w-64 h-36 bg-surface-container-high rounded-lg flex items-center justify-center border border-outline-variant hover:border-white transition-colors cursor-pointer">
+<span class="font-headline-md text-headline-md">DRAMA</span>
+</div>
+<div class="flex-none w-64 h-36 bg-surface-container-high rounded-lg flex items-center justify-center border border-outline-variant hover:border-white transition-colors cursor-pointer">
+<span class="font-headline-md text-headline-md">SCI-FI</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full max-w-container-max mx-auto py-12 px-margin-sm md:px-margin-md lg:px-margin-lg grid grid-cols-2 md:grid-cols-4 gap-gutter border-t border-outline-variant bg-surface dark:bg-surface">
+<div class="flex flex-col gap-4">
+<a class="text-secondary hover:underline font-body-md text-body-md transition-opacity opacity-80 hover:opacity-100" href="#">Audio Description</a>
+<a class="text-secondary hover:underline font-body-md text-body-md transition-opacity opacity-80 hover:opacity-100" href="#">Help Center</a>
+<a class="text-secondary hover:underline font-body-md text-body-md transition-opacity opacity-80 hover:opacity-100" href="#">Gift Cards</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-secondary hover:underline font-body-md text-body-md transition-opacity opacity-80 hover:opacity-100" href="#">Media Center</a>
+<a class="text-secondary hover:underline font-body-md text-body-md transition-opacity opacity-80 hover:opacity-100" href="#">Investor Relations</a>
+<a class="text-secondary hover:underline font-body-md text-body-md transition-opacity opacity-80 hover:opacity-100" href="#">Jobs</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-secondary hover:underline font-body-md text-body-md transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Use</a>
+<a class="text-secondary hover:underline font-body-md text-body-md transition-opacity opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="text-secondary hover:underline font-body-md text-body-md transition-opacity opacity-80 hover:opacity-100" href="#">Legal Notices</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-secondary hover:underline font-body-md text-body-md transition-opacity opacity-80 hover:opacity-100" href="#">Corporate Information</a>
+<a class="text-secondary hover:underline font-body-md text-body-md transition-opacity opacity-80 hover:opacity-100" href="#">Contact Us</a>
+<p class="text-secondary-fixed-dim font-label-sm text-label-sm mt-4">© 1997-2024 Netflix, Inc.</p>
+</div>
+</footer>
+</body></html>

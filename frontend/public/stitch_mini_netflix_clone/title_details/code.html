@@ -1,0 +1,276 @@
+<html class="dark"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container": "#2e1a18",
+                  "on-tertiary-fixed": "#001b3c",
+                  "on-secondary-fixed-variant": "#474646",
+                  "secondary-fixed-dim": "#c8c6c5",
+                  "on-tertiary-container": "#f8f9ff",
+                  "on-secondary": "#313030",
+                  "surface-container-highest": "#462f2c",
+                  "inverse-on-surface": "#412b28",
+                  "background": "#000000",
+                  "surface-container-low": "#2a1614",
+                  "tertiary-fixed": "#d5e3ff",
+                  "surface": "#200e0c",
+                  "primary-fixed": "#ffdad5",
+                  "on-primary-fixed": "#410001",
+                  "on-surface": "#ffdad5",
+                  "primary": "#ffb4aa",
+                  "on-error-container": "#ffdad6",
+                  "secondary-fixed": "#e5e2e1",
+                  "surface-variant": "#462f2c",
+                  "error-container": "#93000a",
+                  "tertiary": "#a7c8ff",
+                  "on-primary-fixed-variant": "#930007",
+                  "secondary-container": "#4a4949",
+                  "outline-variant": "#5e3f3b",
+                  "inverse-primary": "#c0000c",
+                  "surface-bright": "#4a3330",
+                  "on-primary": "#690003",
+                  "on-tertiary-fixed-variant": "#004689",
+                  "on-background": "#ffdad5",
+                  "surface-dim": "#200e0c",
+                  "inverse-surface": "#ffdad5",
+                  "on-primary-container": "#fff7f6",
+                  "outline": "#af8782",
+                  "on-surface-variant": "#e9bcb6",
+                  "tertiary-container": "#0072d7",
+                  "on-secondary-fixed": "#1c1b1b",
+                  "primary-container": "#e50914",
+                  "on-tertiary": "#003061",
+                  "secondary": "#c8c6c5",
+                  "surface-tint": "#ffb4aa",
+                  "surface-container-lowest": "#1a0908",
+                  "on-error": "#690005",
+                  "surface-container-high": "#3a2522",
+                  "primary-fixed-dim": "#ffb4aa",
+                  "tertiary-fixed-dim": "#a7c8ff",
+                  "error": "#ffb4ab",
+                  "on-secondary-container": "#bab8b7"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "spacing": {
+                  "container-max": "1920px",
+                  "margin-md": "3rem",
+                  "unit": "8px",
+                  "gutter": "1.5rem",
+                  "margin-lg": "4rem",
+                  "margin-sm": "1rem"
+          },
+          "fontFamily": {
+                  "display-md": ["Bebas Neue"],
+                  "label-sm": ["Inter"],
+                  "display-lg": ["Bebas Neue"],
+                  "headline-md": ["Inter"],
+                  "body-md": ["Inter"],
+                  "headline-lg-mobile": ["Inter"],
+                  "body-lg": ["Inter"],
+                  "headline-lg": ["Inter"]
+          },
+          "fontSize": {
+                  "display-md": ["48px", {"lineHeight": "48px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                  "display-lg": ["72px", {"lineHeight": "72px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { background-color: #000000; color: #ffdad5; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .hero-gradient {
+      background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%),
+                  linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%);
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-sm md:px-margin-md lg:px-margin-lg h-16 transition-colors duration-300 ease-in-out bg-transparent">
+<div class="flex items-center gap-8">
+<h1 class="font-display-lg text-display-lg text-primary-container tracking-tighter">NETFLIX</h1>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-secondary-fixed-dim font-body-md hover:text-on-surface transition-colors duration-200" href="#">Home</a>
+<a class="text-secondary-fixed-dim font-body-md hover:text-on-surface transition-colors duration-200" href="#">TV Shows</a>
+<a class="text-secondary-fixed-dim font-body-md hover:text-on-surface transition-colors duration-200" href="#">Movies</a>
+<a class="text-secondary-fixed-dim font-body-md hover:text-on-surface transition-colors duration-200" href="#">New &amp; Popular</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface hover:scale-105 transition-transform">search</button>
+<button class="material-symbols-outlined text-on-surface hover:scale-105 transition-transform">notifications</button>
+<div class="w-8 h-8 rounded-lg overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ8UVZvHjblxi4P32WJPFQVLSVWTDRe409ZRb4He3aRxkSKgGEXteABHkTWokg1zQJAsx3i3ZDG75SiHPulWT1q-DcZY39cQYWrMRvrhPNvQtoxhvEE15GMXZNMx3_9vfzH1De96mNUZ4jGp7hLt2t6TrvEHIYY2yeWb0A7niObwqqn87HsCWpDCySdpEc2JTjPkJRrKCbGJTOBqsxjuuXv960D7SZVghSr7rObTHlIlQy3h0PbZrcUJaxNlhXFNHXopDKmrgnWTXh"/>
+</div>
+</div>
+</header>
+<!-- Hero Content Section -->
+<main class="relative min-h-screen flex flex-col">
+<!-- Background Still -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="A cinematic wide shot of a futuristic cyberpunk city at night with towering neon skyscrapers reflecting in rain-slicked streets. The scene is dominated by deep blacks and cool charcoal tones, with vibrant red neon streaks cutting through the dark atmosphere. Dramatic moody lighting creates high-contrast shadows and a premiere-quality theatrical look for a high-budget sci-fi action film." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU0Dk2XulUZGR4pWvpVKtO34YGI1sH6lB2NhKYqJgulnay1ix8NO8zhXsF2f8Z_CyJ2IxDYaOLgxYcNhfHWybyGKZ6uICMuA5iRnhUQGxLamoCWoYqhjc8lB3B06pcu_LuCcBjA4MW6S0jqaNtCmopYzJ5pwTxMXJ_cBrt1c-OIvveMFzvHUdGMHqyMJpkh-4HhHES4_JqC5GCIFXL1Yss1AUN6idpf9T9bDiiRXeWhS60GclvOD2YXeRfQcqy-eURQtzdsOH2Rxig"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<!-- Foreground Info -->
+<section class="relative z-10 flex-grow flex flex-col justify-end px-margin-sm md:px-margin-md lg:px-margin-lg pb-24 max-w-4xl">
+<div class="space-y-6">
+<div class="space-y-2">
+<span class="font-label-sm text-label-sm tracking-widest text-primary-container flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+            NETFLIX ORIGINAL
+          </span>
+<h2 class="font-display-lg text-[80px] leading-tight text-on-surface uppercase tracking-tight">ECHO PROTOCOL</h2>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm text-label-sm">
+<span class="text-green-500 font-bold">98% Match</span>
+<span>2024</span>
+<span class="px-1 border border-outline-variant rounded-sm">TV-MA</span>
+<span>2h 15m</span>
+<span class="px-1 border border-outline-variant rounded-sm">4K Ultra HD</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+          In a world where memories can be harvested, a specialized agent discovers a fragment of his own past that was never meant to be retrieved. Now, he must navigate a lethal web of corporate espionage to protect the only truth he has left.
+        </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="flex items-center gap-2 bg-on-surface text-background px-8 py-3 rounded hover:opacity-80 transition-opacity font-bold text-headline-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+            Play
+          </button>
+<button class="flex items-center gap-2 bg-secondary-container/40 backdrop-blur-md text-on-surface px-8 py-3 rounded hover:bg-secondary-container/60 transition-colors font-bold text-headline-md">
+<span class="material-symbols-outlined">add</span>
+            My List
+          </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full border-2 border-outline-variant text-on-surface hover:bg-on-surface/10 transition-colors">
+<span class="material-symbols-outlined">thumb_up</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Metadata & Recommendations Section -->
+<section class="relative z-10 bg-background px-margin-sm md:px-margin-md lg:px-margin-lg py-16">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-20">
+<div class="lg:col-span-3">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-6">More Like This</h3>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Recommendation Cards -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[16/9] rounded-lg overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A cinematic 16:9 movie still of a dark tech noir hallway with flickering blue and red lights. The atmosphere is thick with atmospheric smoke and neon reflections on metallic surfaces. Professional high-contrast cinematic photography with deep shadows and sharp highlights, fitting a premium theatrical streaming platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtpufu9-gBh1QMcBcWHcW2AfogUZPjvWSXL_Q6kv42xZ1ceA9uB_TUT1nUHDnTO1XwU0BexDbmdC_bN6SD-yDfIxvlz7nOkag2HUAsiuOpnh68LrWgYmBSMH0-YODWRqW6H8jQio6CZh03orXtY-zC7JW2Bi0BU71rfdwc73I7mupsItN5IvV1kDkcuSkgItL-EYrYY3bjtOOBKGGgaCk-FRCEfgNbwQgz-birmNK-6I18AZ6w-HtnY7XqdgaeXWEsKjtfuDRHoIcl"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-4xl text-on-surface">play_circle</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Technocracy</p>
+<button class="material-symbols-outlined text-sm text-on-surface-variant">add_circle</button>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[16/9] rounded-lg overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A gritty sci-fi city landscape at dusk featuring massive Brutalist architecture silhouetted against a deep violet and orange sky. Cinematic lighting illuminates the jagged edges of futuristic buildings with a rich, dark color palette and high-end film grain texture. The mood is epic and dramatic, perfect for a prestige movie detail screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCobbiF6jsoDvNeoJ23SOin8vTijktUEnVyqDxrrFhPElbOKRvJzEfS8VdStwqPojFuxXuv0F5OOp_186qPfvESPefYqn1816-1JjUgLNLxnmcXtHZvwBsZ0-gw0KHppDAb6N8UDlfc69HqBELzjFnteqclN1gASAvhEeyN_UdyLDdUCA3URrY4wxPnvCJqFwa5VbPqRHe0qm3nP3NQLVe-b9Xx3WEzXFx5BlzSlbkafTXotChGYtLuoUqxgR6b4xccNS21IvWfYqgT"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-4xl text-on-surface">play_circle</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Carbon Skies</p>
+<button class="material-symbols-outlined text-sm text-on-surface-variant">add_circle</button>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[16/9] rounded-lg overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An abstract cinematic scene of a high-tech laboratory filled with glowing red interfaces and sleek dark hardware. Dramatic low-key lighting creates deep charcoal and black tones throughout the environment, punctuated by vibrant primary red digital data flows. The image has a sharp, clean, high-production-value feel typical of a modern streaming service hero background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhDEXryh4xw9Wnyf5YZrvkjiJfyT7gucWIhfC9EQQrck3U0woRpXiWr-y8sjyeUAXeBs4uyKF4zFASgkmGpgq0bTwcVUl_g2tnRIrogpiiJxdzHDRNa6H-Vl5iGS1gbbvJrqsRm5tC7aL_mLDhWajkGNJKhcZGwb8YhSIGJFd77WZtWUiksRoCMBjSHE-oUWv76vgM7GwFvrjYXcMjjp555Fgp5UGjT4qdAuXcneuRljeAhWdf1mF6PkctAjqVYNfzgYmM9da7A7oo"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-4xl text-on-surface">play_circle</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Ghost Network</p>
+<button class="material-symbols-outlined text-sm text-on-surface-variant">add_circle</button>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[16/9] rounded-lg overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A moody cinematic shot of a lone figure walking through a dense, foggy forest illuminated only by a single bright red flare. The environment is dark and mysterious, dominated by deep charcoal shadows and high-contrast red highlights. This professional movie still captures an intense, theatrical mood with rich textures and atmospheric depth for a premium visual storytelling experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXFN3JDU7naI36Qd3Pw4APPCTVkA3KRSth-ZC69_2DAgetDNeR3nsRotUX8j_CQxNxOKVxYyVhNKpJqJRFuhVoi9w7OZdsCGIsAWERtKzdhx27qiqIMzQFnqsTLy7Ul2-6oFzmYtN4dtyOXTqfHJh0tl3L4kD23YiOGvJor0nNvATUK40rYc4UYH8VeAoqa5mX68VdojV3UBL-MFI1votIYJALBIjeHk_QtP0cTF5pJqV_RfAXmmI1u3ZjgPNXTckz0p6AvZ0QqNz1"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-4xl text-on-surface">play_circle</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<p class="font-label-sm text-label-sm text-on-surface-variant">The Signal</p>
+<button class="material-symbols-outlined text-sm text-on-surface-variant">add_circle</button>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<h4 class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest mb-2">Cast</h4>
+<p class="font-body-md text-body-md text-on-surface leading-snug">David Harbour, Sofia Boutella, Hiroyuki Sanada, Carrie-Anne Moss, Pedro Pascal</p>
+</div>
+<div>
+<h4 class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest mb-2">Genres</h4>
+<p class="font-body-md text-body-md text-on-surface leading-snug">Sci-Fi Movies, Action &amp; Adventure, Thrillers</p>
+</div>
+<div>
+<h4 class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest mb-2">This Movie is...</h4>
+<p class="font-body-md text-body-md text-on-surface leading-snug">Ominous, Gritty, Mind-Bending, Suspenseful</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Shell -->
+<footer class="w-full max-w-container-max mx-auto py-12 px-margin-sm md:px-margin-md lg:px-margin-lg grid grid-cols-2 md:grid-cols-4 gap-gutter border-t border-outline-variant">
+<div class="flex flex-col gap-4">
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Audio Description</a>
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Investor Relations</a>
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Legal Notices</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Help Center</a>
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Jobs</a>
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Cookie Preferences</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Gift Cards</a>
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Use</a>
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Corporate Information</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Media Center</a>
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy</a>
+<a class="text-secondary hover:underline font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity" href="#">Contact Us</a>
+</div>
+<div class="col-span-full mt-8">
+<button class="border border-secondary text-secondary px-4 py-1 hover:text-on-surface hover:border-on-surface transition-colors mb-4">Service Code</button>
+<p class="text-secondary text-xs opacity-60">© 1997-2024 Netflix, Inc.</p>
+</div>
+</footer>
+</body></html>

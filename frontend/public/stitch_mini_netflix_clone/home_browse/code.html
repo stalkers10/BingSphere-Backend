@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#2e1a18",
+                    "on-tertiary-fixed": "#001b3c",
+                    "on-secondary-fixed-variant": "#474646",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-container": "#f8f9ff",
+                    "on-secondary": "#313030",
+                    "surface-container-highest": "#462f2c",
+                    "inverse-on-surface": "#412b28",
+                    "background": "#200e0c",
+                    "surface-container-low": "#2a1614",
+                    "tertiary-fixed": "#d5e3ff",
+                    "surface": "#200e0c",
+                    "primary-fixed": "#ffdad5",
+                    "on-primary-fixed": "#410001",
+                    "on-surface": "#ffdad5",
+                    "primary": "#ffb4aa",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed": "#e5e2e1",
+                    "surface-variant": "#462f2c",
+                    "error-container": "#93000a",
+                    "tertiary": "#a7c8ff",
+                    "on-primary-fixed-variant": "#930007",
+                    "secondary-container": "#4a4949",
+                    "outline-variant": "#5e3f3b",
+                    "inverse-primary": "#c0000c",
+                    "surface-bright": "#4a3330",
+                    "on-primary": "#690003",
+                    "on-tertiary-fixed-variant": "#004689",
+                    "on-background": "#ffdad5",
+                    "surface-dim": "#200e0c",
+                    "inverse-surface": "#ffdad5",
+                    "on-primary-container": "#fff7f6",
+                    "outline": "#af8782",
+                    "on-surface-variant": "#e9bcb6",
+                    "tertiary-container": "#0072d7",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "primary-container": "#e50914",
+                    "on-tertiary": "#003061",
+                    "secondary": "#c8c6c5",
+                    "surface-tint": "#ffb4aa",
+                    "surface-container-lowest": "#1a0908",
+                    "on-error": "#690005",
+                    "surface-container-high": "#3a2522",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "tertiary-fixed-dim": "#a7c8ff",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#bab8b7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1920px",
+                    "margin-md": "3rem",
+                    "unit": "8px",
+                    "gutter": "1.5rem",
+                    "margin-lg": "4rem",
+                    "margin-sm": "1rem"
+            },
+            "fontFamily": {
+                    "display-md": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-md": ["48px", {"lineHeight": "48px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["72px", {"lineHeight": "72px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to top, #200e0c 0%, transparent 40%), linear-gradient(to right, #200e0c 0%, transparent 60%);
+        }
+        .poster-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .poster-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-sm md:px-margin-md lg:px-margin-lg h-16 bg-transparent dark:bg-transparent transition-colors duration-300 ease-in-out">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-display-lg text-primary-container dark:text-primary-container tracking-tighter">NETFLIX</span>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-on-surface dark:text-on-surface font-bold border-b-2 border-primary-container pb-1 font-label-sm text-label-sm" href="#">Home</a>
+<a class="text-secondary-fixed-dim dark:text-secondary-fixed-dim font-body-md hover:text-on-surface font-label-sm text-label-sm" href="#">TV Shows</a>
+<a class="text-secondary-fixed-dim dark:text-secondary-fixed-dim font-body-md hover:text-on-surface font-label-sm text-label-sm" href="#">Movies</a>
+<a class="text-secondary-fixed-dim dark:text-secondary-fixed-dim font-body-md hover:text-on-surface font-label-sm text-label-sm" href="#">New &amp; Popular</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-on-surface-variant transition-colors duration-200">search</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-on-surface-variant transition-colors duration-200" data-icon="notifications">notifications</span>
+</div>
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center overflow-hidden scale-105 transition-transform duration-300">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxWGgwnU37eUAAyrwm9WLe95eFTQrDD5J50AtcBOtYkMVi7CKn5ZfxPD3YufqzGm2rdq7bO0-dMLlt1imSjdsxf21xBGx28_jJWJ-MK80TgyGXFYPJALL85uaR2mf-KVqmlu9Y_Mo2FweAh6UFgJsYPDvCT4S_Z9xx4KyxBllkRyCVCdNeTjcfFrS6q2V3h0oXR37NyPaoocJbzbJw8SJYHdxSqv1sTcOdtcbnD5nF_J8Adi0v5__9q3uZaFTu2afvt1yScyZXNoe7"/>
+</div>
+</div>
+</header>
+<main class="relative">
+<!-- Hero Section -->
+<section class="relative h-[972px] w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A cinematic, ultra-wide panoramic shot of a dramatic futuristic cityscape at dusk, featuring towering obsidian skyscrapers with neon red glowing accents. The sky is a deep, moody charcoal with faint stellar nebulae. In the foreground, a sleek high-tech vehicle idles on a rain-slicked highway, reflecting the ambient red and cold blue lights. The lighting is high-contrast, moody, and atmospheric, emphasizing a high-end sci-fi theatrical aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCMp1BZnGuea4lkbZo1pFT33NDptAE9PXfd92RiVD6yWGLlZRbSn58ydZSB0l0aKt6C4Y7geQ3Q1aDyeLMvf9L7X_ydu1N7yYWA_NI4QYL7iJ76YHWJBuD3dbHIwL3EXw5CI28czEWoEHNiOkTlcMhHPW1qIZhHXQ-ygPX3fYdfhR2NdWu6Xs5EXUK3QeYQMq_dIrwrAZUqgr2WqSBHhZ_sNHdTwf50X3PNbZvRLI4fNUC0_Mk8PQjuDAK0peuJjwvtiyt-gUTCLqqw')"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="relative h-full flex flex-col justify-end pb-32 px-margin-sm md:px-margin-md lg:px-margin-lg max-w-4xl">
+<div class="mb-4 flex items-center gap-2">
+<span class="bg-primary-container px-2 py-1 text-[10px] font-bold tracking-widest uppercase rounded-sm">Special Preview</span>
+</div>
+<h1 class="font-display-lg text-display-lg leading-none mb-6 drop-shadow-2xl">CYBERPUNK REVENGE</h1>
+<p class="font-body-lg text-body-lg text-secondary-fixed-dim mb-8 max-w-2xl line-clamp-3">
+                    In a future where memory is a commodity, one elite operative risks everything to recover a fragment of her past that could dismantle the world's most powerful corporate empire. A visually stunning journey through the neon-soaked underworld.
+                </p>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container hover:bg-red-700 text-white px-8 py-3 rounded flex items-center gap-3 font-bold transition-transform active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                        Play Now
+                    </button>
+<button class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white px-8 py-3 rounded flex items-center gap-3 font-bold transition-transform active:scale-95">
+<span class="material-symbols-outlined">info</span>
+                        More Info
+                    </button>
+</div>
+</div>
+</section>
+<!-- Content Rows -->
+<div class="relative -mt-24 z-10 flex flex-col gap-12 pb-24">
+<!-- Trending Now Row -->
+<section class="pl-margin-sm md:pl-margin-md lg:pl-margin-lg">
+<h2 class="font-headline-md text-headline-md mb-4 text-on-surface">Trending Now</h2>
+<div class="poster-scroll flex gap-4 overflow-x-auto pr-margin-sm md:pr-margin-md lg:pr-margin-lg pb-4">
+<!-- Movie Card 1 -->
+<div class="flex-none w-48 md:w-56 lg:w-64 group cursor-pointer transition-transform duration-300 hover:scale-105">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative mb-2">
+<img class="w-full h-full object-cover" data-alt="A theatrical movie poster featuring a close-up of a masked hero in a high-tech obsidian suit, illuminated by sharp red rim lighting against a pitch-black background. The style is hyper-realistic and dramatic, with visible texture on the metallic armor and a sense of intense action. The color palette is strictly deep blacks, charcoals, and vibrant crimson." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0JecPDXwNByrUIrxNLpR__aQETQi5BZeOsw56DBGhiorhV9MgzqhnxeNKByH59XXLXOgC2c11YMLKqnvXTToXSIZgVEE8cks-mIoC8U_W74aQkrLfbMApxYzQ6djMasoRo_DlzTccQHjlLTVvEB0zFjDUyT5jMCzeOSgK6sAFoBZdgGyUFVDlhyHALjyKPC2ooFbu10fme68NUCIkm6DKd3wQYLsOWX55AhguoxgjQaOx3g4IAXWW4lZ68N2fk0Iisbz9s_9J_AB9"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="text-secondary-fixed-dim font-label-sm text-label-sm flex gap-2">
+<span class="text-primary font-bold">98% Match</span>
+<span>1h 45m</span>
+</div>
+</div>
+<!-- Movie Card 2 -->
+<div class="flex-none w-48 md:w-56 lg:w-64 group cursor-pointer transition-transform duration-300 hover:scale-105">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative mb-2">
+<img class="w-full h-full object-cover" data-alt="A cinematic film poster showing a mysterious deep-sea research station glowing with amber lights at the bottom of a dark blue ocean trench. Tiny submersible vehicles swarm around the base. The lighting is bioluminescent and ethereal, creating a sense of underwater claustrophobia and wonder. High contrast between the dark abyss and the warm interior lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD8OznKDqEGWnQx1hcugRSrVjNTvSrfwwqzBKkiFnrD6TEPk_Bqc6pAHPIyGmpZAnOBKDLBwynxwVWkx5zuKcfNcoyIET2LuWJ9Rnwjkh0imxYCRpU4ei81FZU7DcCDhqaqgcIKjF5_2rFUlOdyC-EPC1d5lAV7YDvDdvyq7AwUVT9NvnUULY8S3XAHQcre66iMlrOWU_XF1O5KEbp-hRS-yIS_GI2Ru0j_tRRkcBkolyqdeZmOV5GoWmTVs7BnulUKJPP0afRE8pj"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="text-secondary-fixed-dim font-label-sm text-label-sm flex gap-2">
+<span class="text-primary font-bold">95% Match</span>
+<span>2h 10m</span>
+</div>
+</div>
+<!-- Movie Card 3 -->
+<div class="flex-none w-48 md:w-56 lg:w-64 group cursor-pointer transition-transform duration-300 hover:scale-105">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative mb-2">
+<img class="w-full h-full object-cover" data-alt="An artistic film still of a figure standing in a desert of white sand under a colossal, blood-red moon that fills half the sky. The horizon is sharp and minimalist. The lighting is harsh and theatrical, casting long black shadows. The composition is clean and symmetric, emphasizing a premium cinematic sci-fi look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC08nbpiZ2lT33DX8wt6n-5lKLQ6BpsC_sDbFd9SlhiC4LDwu5AtW4rlY3GClKeRgvDF04uMkHMA7U056hYIkr99rMNhjQ7rgnkw_WAA2p1S_ur41kuYFqIysjj8eA8bP2OUFqbkfl05_i0lhyZZJONpRfX101AE47CVTVZSTvVjw-7XVpZsF8k_ga0VcVlbYDggT8NtxAqJXp1nXlVJTV_34AR23-_Fu9ExA2k9xLZo_M1jywKmY2doqUftXCNm5JncM8j8eAKKjK8"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="text-secondary-fixed-dim font-label-sm text-label-sm flex gap-2">
+<span class="text-primary font-bold">New Release</span>
+<span>1h 22m</span>
+</div>
+</div>
+<!-- Movie Card 4 -->
+<div class="flex-none w-48 md:w-56 lg:w-64 group cursor-pointer transition-transform duration-300 hover:scale-105">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative mb-2">
+<img class="w-full h-full object-cover" data-alt="A stylized movie poster of a digital samurai silhouette amidst a flurry of red cherry blossom petals that are actually data pixels. The background is a stark charcoal grey with vertical stripes of neon white code. The mood is sharp, aggressive, and highly modern. High-end digital art style with cinematic depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIsU8MYk0DM6At_K3PpqR1Vig8avTNlbLGAMLtjCkpOfaLmhcJMtz2tRDGyDkGJshFSp3HcGfm-2uIUiqyDC5JjyPKoHiv2hpDVGNLM9NiNPfQGsVN1PH5989HgHdNXQCwn8-W13V_FEuhQJTvVJG1LIrRujbBjI_cX6FLbfEijfbiQWvabgC_aJVFlAMC-VB9y51n0v-OfJm8qa67k15KUN6DQakZZVTMnfzA3QxQiNoLy02ioIDkZZeWQZPteyOyxXmkbxBJWvg3"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="text-secondary-fixed-dim font-label-sm text-label-sm flex gap-2">
+<span class="text-primary font-bold">92% Match</span>
+<span>1h 55m</span>
+</div>
+</div>
+<!-- Movie Card 5 -->
+<div class="flex-none w-48 md:w-56 lg:w-64 group cursor-pointer transition-transform duration-300 hover:scale-105">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative mb-2">
+<img class="w-full h-full object-cover" data-alt="A sweeping cinematic shot of a gothic cathedral transformed into a neon-lit nightclub. Arched windows glow with deep purple and primary red light. Silhouettes of people are scattered in the foreground. The aesthetic is gothic-noir with a modern theatrical twist. Extreme wide angle, rich textures and atmospheric haze." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkHjdi5vnvthE_-hK0yH-O0M0SMxKAGsCdkPFPRjBeXQAPfcd20MUqsyDLitNd6_4SKxgav0w-3BQuGHTooZA-FKbkAD-kHlV_U1Bt0ioUrpRbcmAQ5HnaCdqlLFES_tZtWR3DXejSegButdJAOoibSV4y23fi4hLvSbKQK__Au0GCZVWvLOdCa6wa3FCJIcBNLJWzyp7cegQ5Fr7Iq6-NSec-cBaGqevWzT1kp5Hkp7OvW21F3CPYwZ2G2lIp-j4HPxiEtSIoDXqM"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="text-secondary-fixed-dim font-label-sm text-label-sm flex gap-2">
+<span class="text-primary font-bold">99% Match</span>
+<span>2h 45m</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Continue Watching Row -->
+<section class="pl-margin-sm md:pl-margin-md lg:pl-margin-lg">
+<h2 class="font-headline-md text-headline-md mb-4 text-on-surface">Continue Watching</h2>
+<div class="poster-scroll flex gap-4 overflow-x-auto pr-margin-sm md:pr-margin-md lg:pr-margin-lg pb-4">
+<!-- Progress Card 1 -->
+<div class="flex-none w-64 md:w-72 lg:w-80 group cursor-pointer transition-transform duration-300 hover:scale-105">
+<div class="aspect-video rounded-lg overflow-hidden relative mb-2">
+<img class="w-full h-full object-cover" data-alt="A dramatic cinematic frame of an astronaut walking alone on the surface of a jagged, dark volcanic planet. The sky is filled with a massive, swirling gaseous nebula in shades of deep red and violet. The lighting is harsh and directional from a distant star. The suit of the astronaut reflects the surrounding environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDefBL39iNTF8qlRAGpLYuwMSFMeUF0RZWvg2WarKW_KsFFopAo_Q_8ljky1Oj1aB3puu9feaEHv-_Q8rqZYOdQ_hq11AUL9e9lOo8JcGyXruQhn-hQVCWJ5BEui_JbH6_j_kdDKm_jGdadqcABMivr3OyVEConNEqb_nB50RMHTmhNgsYRwd5o4LfUI5cjhk2u3QjtRe9kEpvoy_960qieDWIKJQglBa_57F-43jxTnHv__COtrUTgt8gv9V8fThpyYL06zlYPX5qP"/>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-white/20">
+<div class="h-full bg-primary-container w-[75%]"></div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-on-surface">Void Echoes</h3>
+<p class="text-secondary-fixed-dim font-label-sm text-label-sm">S1:E4 "The Silence"</p>
+</div>
+<span class="material-symbols-outlined text-secondary hover:text-on-surface">info</span>
+</div>
+</div>
+<!-- Progress Card 2 -->
+<div class="flex-none w-64 md:w-72 lg:w-80 group cursor-pointer transition-transform duration-300 hover:scale-105">
+<div class="aspect-video rounded-lg overflow-hidden relative mb-2">
+<img class="w-full h-full object-cover" data-alt="A high-stakes crime drama still showing a smoky, dimly lit poker room in an underground vault. Golden light spills from a single overhead lamp onto a table scattered with cards and obsidian chips. The atmosphere is thick with tension and cinematic grain. High-contrast noir lighting with deep shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMMnsOhptbHJvdxgGKuP-O-7VAXSnInnbHPYbZ2Vv_OO4QIg8GcsyuvRm_eS5KHqIxBJy301iOOk3HvuvhLMBhSpfklIrTFjGpFSM8M7L5ipUlALmllvAwqZ67ReSZtJ4EnpfG7NTLR7LzESX6ETaTYRj9kYH8AfYxPRjoTtRpL3yUXMQDlZYzjXtaYEVdJk4xeqhmShFkpqMfCFoSX0y_mCgIbNipX1YSF-XENqcZnES0T7f3UsSP3Ooxi7WjOxrhFX65qTMLRhdr"/>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-white/20">
+<div class="h-full bg-primary-container w-[30%]"></div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-on-surface">The Vault Kings</h3>
+<p class="text-secondary-fixed-dim font-label-sm text-label-sm">S2:E1 "Ante Up"</p>
+</div>
+<span class="material-symbols-outlined text-secondary hover:text-on-surface">info</span>
+</div>
+</div>
+</div>
+</section>
+<!-- New Releases Row -->
+<section class="pl-margin-sm md:pl-margin-md lg:pl-margin-lg">
+<h2 class="font-headline-md text-headline-md mb-4 text-on-surface">New Releases</h2>
+<div class="poster-scroll flex gap-4 overflow-x-auto pr-margin-sm md:pr-margin-md lg:pr-margin-lg pb-4">
+<div class="flex-none w-48 md:w-56 lg:w-64 group cursor-pointer transition-transform duration-300 hover:scale-105">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative mb-2">
+<img class="w-full h-full object-cover" data-alt="A theatrical documentary poster of a massive glacier calving into a dark, mirror-like arctic sea under the ethereal green glow of the Aurora Borealis. The scale is monumental, capturing the raw power of nature. Cinematic lighting with cool teals and brilliant whites against a deep navy sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA01QYCF0jNnrJoaKoPOOtp9hp2VfCTBt9eSeqQW_IFxIM9w5qsgbr7eSSkqxkk6YOKISqHcrJkEEJSZ9FfFdqbGevRtc5-P2xYcoXpQHk_fAmI-2PDp9kHas4xxOBgLo2eNEk55EYWQe3mbHxcNS9NT1b_wdMD5c92D5gTe-Gzu6CAYFLQNemAaKWi-WfLqMgNLvIjlnR9dLFr4TvGjCL3wucJtgu4dmOx7NwFS4MBE6YiuKNd2j8pZ7gO4YHGKoemKFNAmi4XD1jp"/>
+</div>
+</div>
+<div class="flex-none w-48 md:w-56 lg:w-64 group cursor-pointer transition-transform duration-300 hover:scale-105">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative mb-2">
+<img class="w-full h-full object-cover" data-alt="A sleek automotive action movie poster showing a high-performance sports car mid-drift on a neon-lit Tokyo street. Tire smoke glows red from the tail lights. Rain streaks across the frame like cinematic speed lines. Moody, high-saturated urban nightlife aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqhL9qRmI_R0Ww2IgNxul5wQmlHcKFSI_JGPeESEYzBURz-urg0RSfHpS1xMft9bI3cLOuN-qWvhOg4XrcLh-BpLC4XyHnGXOuuPH9pzMjBh21SiiYu-WbQjE1rQ0PaJvGnX6PKrTxHR8yko4z2lhHK1-0Thy0X2jalknc0yWuVgegxmClZMCBCfVYQ4C0OgDn9Gf50rLqjp_qryd5WH7WQXFUYFfju7YrxSXuxUeVVDs-QHObWm_QihB5Bi5l2dMxPq59TQRot0r2"/>
+</div>
+</div>
+<div class="flex-none w-48 md:w-56 lg:w-64 group cursor-pointer transition-transform duration-300 hover:scale-105">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative mb-2">
+<img class="w-full h-full object-cover" data-alt="A mystery thriller movie poster featuring a foggy Victorian London street at night. Gas lamps cast long, sickly yellow glows through the heavy mist. A lone silhouette in a long coat walks away from the camera. The style is classic cinematic noir with rich textures of cobblestone and damp brick." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmEbpEjR4S0311E7euJuFvSCWtKabJo_cxYOTC-su-Fq8c1TrxSBtcurwUyerJVyQ3HokZflfjHd4r8D4Y2xNX5bchtusyckFNBmWZ4bPoDFETTLSXeklvp5H7MKm0gPaY8BEETRQlx81WttlnqCFmccheDfdWpIHaUp1K-hdLcMH4m9JKHSwTRrA9Rb-BX9a5C3OvDYhhPCbJd5F7k7pEERDe4p7NHkdZi6SSEoRb7Xp02EcPo2zLkRJY49Hcw7zCIgL6fXJQo6ZM"/>
+</div>
+</div>
+<div class="flex-none w-48 md:w-56 lg:w-64 group cursor-pointer transition-transform duration-300 hover:scale-105">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative mb-2">
+<img class="w-full h-full object-cover" data-alt="A high-concept abstract film poster consisting of swirling liquid gold and black ink droplets colliding in mid-air. The lighting is studio-quality with sharp highlights and deep shadows. It evokes a sense of fluid movement and premium luxury. High resolution with macro detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9quCMViXLqGD6g6nwbDtc78PK0KYQhXAUeLDnZ-hCKfFqnVsiNjalkwlze1vv0nzAtQW9lEZtDwnkNGewxo-lQ399J_mE1Aq6cSRWV7ae3a5ai5fAO6x0WaywEw9hjsf15-OZP0m7hEeeBCd6VuM2KfKiBsHQV1pvRnlR-O_n0c_DXKfZiMX94inr_Kc6tYdNlm6W_K5ZenueQ6Nr8pvAS5N1gM7SzJNZ0XejHXLEXBm0nDDhilHe-wv6v5bzcqAZjemlPYJDZc2g"/>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface border-t border-outline-variant w-full max-w-container-max mx-auto py-12 px-margin-sm md:px-margin-md lg:px-margin-lg grid grid-cols-2 md:grid-cols-4 gap-gutter opacity-80 hover:opacity-100 transition-opacity">
+<div class="col-span-full mb-8">
+<span class="font-display-md text-display-md text-primary-container">NETFLIX</span>
+</div>
+<div class="flex flex-col gap-3">
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Audio Description</a>
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Help Center</a>
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Gift Cards</a>
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Media Center</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Investor Relations</a>
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Jobs</a>
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Terms of Use</a>
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Privacy</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Legal Notices</a>
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Cookie Preferences</a>
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Corporate Information</a>
+<a class="text-secondary hover:underline font-body-md text-body-md" href="#">Contact Us</a>
+</div>
+<div class="col-span-full mt-12">
+<button class="border border-outline px-4 py-2 text-secondary hover:text-white transition-colors mb-6 font-label-sm text-label-sm">Service Code</button>
+<p class="text-secondary font-label-sm text-label-sm">© 1997-2024 Netflix, Inc.</p>
+</div>
+</footer>
+</body></html>
