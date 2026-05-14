@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { finalize } from 'rxjs';
+import { finalize, timeout } from 'rxjs';
 import { AuthService } from '../../services/auth';
 import { Router } from '@angular/router';
 import { FooterComponent } from '../footer/footer';
@@ -13,6 +13,7 @@ import { FooterComponent } from '../footer/footer';
   styleUrl: './auth.scss',
 })
 export class AuthComponent {
+  private readonly authRequestTimeoutMs = 15000;
   isLogin = true;
   username = '';
   password = '';
@@ -22,7 +23,11 @@ export class AuthComponent {
   feedbackMessage: string | null = null;
   feedbackTone: 'success' | 'error' = 'success';
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   submit() {
     if (this.isSubmitting) {
@@ -43,20 +48,28 @@ export class AuthComponent {
 
     if (this.isLogin) {
       this.auth.login({ username, password })
-        .pipe(finalize(() => {
-          this.isSubmitting = false;
-        }))
+        .pipe(
+          timeout(this.authRequestTimeoutMs),
+          finalize(() => {
+            this.isSubmitting = false;
+            this.cdr.detectChanges();
+          }),
+        )
         .subscribe({
           next: () => this.router.navigate(['/home']),
           error: (err) => {
-            this.setFeedback(this.extractError(err, 'Login failed. Please check your credentials.'), 'error');
+            this.setFeedback(this.extractError(err, 'Invalid credentials.'), 'error');
           }
         });
     } else {
       this.auth.register({ username, password, email })
-        .pipe(finalize(() => {
-          this.isSubmitting = false;
-        }))
+        .pipe(
+          timeout(this.authRequestTimeoutMs),
+          finalize(() => {
+            this.isSubmitting = false;
+            this.cdr.detectChanges();
+          }),
+        )
         .subscribe({
           next: () => {
             this.isLogin = true;
@@ -65,7 +78,7 @@ export class AuthComponent {
             this.setFeedback('Account created successfully. Sign in with your new credentials.', 'success');
           },
           error: (err) => {
-            this.setFeedback(this.extractError(err, 'Registration failed. Please try again.'), 'error');
+            this.setFeedback(this.extractError(err, 'Unable to create account right now.'), 'error');
           }
         });
     }
@@ -84,6 +97,14 @@ export class AuthComponent {
   }
 
   private extractError(err: any, fallback: string) {
+    if (err?.name === 'TimeoutError') {
+      return 'The request took too long. Please try again.';
+    }
+
+    if (err?.status === 0) {
+      return 'Unable to reach the server. Please try again.';
+    }
+
     const payload = err?.error;
 
     if (typeof payload === 'string') {
@@ -91,6 +112,10 @@ export class AuthComponent {
     }
 
     if (payload?.detail && typeof payload.detail === 'string') {
+      if (payload.detail.includes('No active account')) {
+        return 'Invalid credentials.';
+      }
+
       return payload.detail;
     }
 

@@ -4,6 +4,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeCollection, WatchProgress } from '../../models/home';
 import { Movie } from '../../models/movie';
+import { apiUrl } from '../../config/runtime-config';
 import { ApiService } from '../../services/api';
 import { FooterComponent } from '../footer/footer';
 import { NavbarComponent } from '../navbar/navbar';
@@ -51,7 +52,7 @@ export class Home implements OnInit {
   feedbackMessage: string | null = null;
   feedbackTone: 'success' | 'error' = 'success';
   private feedbackTimer: ReturnType<typeof setTimeout> | null = null;
-  private readonly watchlistUrl = '/api/watchlist/';
+  private readonly watchlistUrl = apiUrl('watchlist/');
   private defaultFeaturedMovie: Movie | null = null;
 
   constructor(

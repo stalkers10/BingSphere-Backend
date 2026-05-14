@@ -11,7 +11,7 @@ export const routes: Routes = [
   { path: 'login', component: AuthComponent },
   { path: 'privacy-policy', component: LegalPageComponent, data: { page: 'privacy' } },
   { path: 'terms-of-use', component: LegalPageComponent, data: { page: 'terms' } },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: Home },
   { path: 'mylist', component: Watchlist },
   { path: 'movies', component: MovieList },

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, finalize, Observable, of, shareReplay, tap } from 'rxjs';
+import { apiUrl } from '../config/runtime-config';
 import { HomePageResponse } from '../models/home';
 import { Movie } from '../models/movie';
 import { ChangePasswordPayload, UserProfile } from '../models/profile';
@@ -17,11 +18,11 @@ export interface PaginatedMovieResponse {
   providedIn: 'root'
 })
 export class ApiService {
-  private moviesUrl = '/api/movies/';
-  private homeUrl = '/api/home/';
-  private watchlistUrl = '/api/watchlist/';
-  private profileUrl = '/api/profile/';
-  private passwordUrl = '/api/profile/password/';
+  private moviesUrl = apiUrl('movies/');
+  private homeUrl = apiUrl('home/');
+  private watchlistUrl = apiUrl('watchlist/');
+  private profileUrl = apiUrl('profile/');
+  private passwordUrl = apiUrl('profile/password/');
   private profileSubject = new BehaviorSubject<UserProfile | null>(null);
   private profileRequest$: Observable<UserProfile> | null = null;
 
