@@ -2,4 +2,7 @@
 frontend/.angular/
 frontend/dist/
 frontend/node_modules/
-Backend/
+frontend/
+Backend/sob-venv/
+Backend/.env
+Backend/db.sqlite3
