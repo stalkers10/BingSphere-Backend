@@ -8,6 +8,7 @@ from .views import (
     WatchlistViewSet,
     health_check,
     home_page,
+    storage_check,
 )
 
 router = DefaultRouter()
@@ -20,5 +21,6 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='auth_register'),
     path('profile/', ProfileView.as_view(), name='profile'),
     path('profile/password/', ChangePasswordView.as_view(), name='profile-password'),
+    path('api/storage-check/', storage_check),
 ]
 

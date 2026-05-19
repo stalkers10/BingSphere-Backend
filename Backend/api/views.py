@@ -222,3 +222,14 @@ class WatchlistViewSet(viewsets.ModelViewSet):
                 {"error": "Movie already in your watchlist"},
                 status=status.HTTP_400_BAD_REQUEST
             )
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def storage_check(request):
+    from django.conf import settings
+    return Response({
+        'storage': settings.DEFAULT_FILE_STORAGE,
+        'cloud_name': settings.CLOUDINARY_STORAGE.get('CLOUD_NAME'),
+        'has_api_key': bool(settings.CLOUDINARY_STORAGE.get('API_KEY')),
+    })
